@@ -17,7 +17,7 @@ import (
 func ensureBridgeAddr(br *netlink.Bridge, ipn *net.IPNet) error {
 	addrs, err := netlink.AddrList(br, syscall.AF_INET)
 	if err != nil && err != syscall.ENOENT {
-		return fmt.Errorf("could not get list of IP addresses: %v", err)
+		return fmt.Errorf("could not  list of IP addresses: %v", err)
 	}
 
 	// if there're no addresses on the bridge, it's ok -- we'll add one
@@ -215,10 +215,10 @@ func setupBridge(n *NetConf) (*netlink.Bridge, error) {
 	}
 
 	// Set the bridge IP address
-	err = setBridgeIP(n)
-	if err != nil {
-		return nil, fmt.Errorf("failed to set bridge IP: %v", err)
-	}
+	//err = setBridgeIP(n)
+	//if err != nil {
+	//	return nil, fmt.Errorf("failed to set bridge IP: %v", err)
+	//}
 
 	return br, nil
 }
